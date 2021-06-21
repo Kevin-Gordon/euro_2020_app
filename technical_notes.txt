@@ -1,0 +1,1 @@
+This document holds notes on the technical options and decisions related to the euro 2020 app
