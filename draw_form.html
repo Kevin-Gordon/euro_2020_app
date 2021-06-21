@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Euro 2020 Game Draw</title>
+</head>
+<body>
+
+    <script>
+        function randNumbers() {
+            let num1 = Math.random();
+            let num2 = Math.random();
+            return [num1, num2];
+        }
+    
+        function formReset() {
+            document.getElementsByClassName("resetThis").value ="";
+        }
+        
+        function myFunction() {
+            let firstTeam = document.getElementById("firstTeam").value;
+            let secondTeam = document.getElementById("secondTeam").value;
+            let firstParticipant = document.getElementById("firstParticipant").value;
+            let secondParticipant = document.getElementById("secondParticipant").value;
+    
+            console.log(firstTeam);
+    
+            // generate random numbers for team draw:
+            let nums = randNumbers();
+    
+       
+            // Decide which team is the winner:
+            // display winning and losing team:
+    
+            if (nums[0] > nums[1]){
+                document.getElementById("winningTeam").value = firstTeam;
+                document.getElementById("losingTeam").value = secondTeam;
+            } else {
+                document.getElementById("winningTeam").value = secondTeam;
+                document.getElementById("losingTeam").value = firstTeam;
+            }
+    
+            // generate random numbers for participant draw:
+            nums = randNumbers();
+       
+            // Decide which participant is the winner:
+            // display winning and losing participant:
+    
+            if (nums[0] > nums[1]){
+                document.getElementById("drawWinner").value = firstParticipant;
+                document.getElementById("drawLoser").value = secondParticipant;
+            } else {
+                document.getElementById("drawWinner").value = secondParticipant;
+                document.getElementById("drawLoser").value = firstParticipant;
+            }
+    
+        
+        }
+    </script>
+
+    <form>
+        <hr>
+        <h1>EURO 2020 DRAW</h1>
+        <hr>
+
+        <label for="firstTeam">Enter First Team Name</label>
+        <input type="text" list="teams" class="resetThis" id="firstTeam" name="First Team"><br><br>
+        <label for="secondTeam">Enter Second Team Name</label>  
+        <input type="text" list="teams" class="resetThis" id="secondTeam" name="Second Team"><br><br>
+        <label for="firstParticipant">Enter First Participant Name</label>
+        <input type="text" list="participants" id="firstParticipant" value="Lisa" name="First Participant"><br><br>
+        <label for="secondParticipant">Enter Second Participant Name</label>
+        <input type="text" list="participants" id="secondParticipant" value="Kevin" name="Second Participant"><br><br>
+
+        <hr>
+
+        <datalist id="participants">
+            <option value="Lisa"></option>
+            <option value="Kevin"></option>
+        </datalist>
+
+        <datalist id="teams">
+            <option value="Austria"></option>
+            <option value="Belgium"></option>
+            <option value="Crotia"></option>
+            <option value="Czech Rep"></option>
+            <option value="Denmark"></option>
+            <option value="England"></option>  
+            <option value="Finland"></option>
+            <option value="France"></option>
+            <option value="Germany"></option>
+            <option value="Hungary"></option>
+            <option value="Italy"></option>
+            <option value="Netherlands"></option>  
+            <option value="N.Macedonia"></option>
+            <option value="Poland"></option>
+            <option value="Portugal"></option>
+            <option value="Russia"></option>
+            <option value="Scotland"></option>
+            <option value="Slovakia"></option>          
+            <option value="Spain"></option>
+            <option value="Sweden"></option>
+            <option value="Switzerland"></option>
+            <option value="Turkey"></option>
+            <option value="Ukraine"></option>
+            <option value="Wales"></option>  
+        </datalist>
+    
+     </form>
+
+    
+    <br>
+    <button onclick="myFunction()">Run Draw</button>
+    <br><br>
+
+
+    <form action="">
+        <hr>
+        <h1>DRAW RESULTS</h1>
+        <hr>
+
+        <label for="drawWinner">Draw Winner</label>
+        <input type="text" class="resetThis" id="drawWinner" name="drawWinner" readonly>
+        <label for="winningTeam">has been given</label>
+        <input type="text" class="resetThis" id="winningTeam" name="winningTeam" readonly><br><br>
+        <label for="drawLoser">Draw Loser<label>
+        <input type="text" class="resetThis" id="drawLoser" name="drawLoser" readonly>
+        <label for="losingTeam">has been given</label>
+        <input type="text" class="resetThis" id="losingTeam" name="losingTeam" readonly><br><br>
+
+        <hr>
+    </form>
+
+    <br>
+    <button onclick="formReset()">Clear</button>
+    <br><br>    
+</body>
+</html>
